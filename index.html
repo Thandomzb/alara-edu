@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alara | Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="safe-exit" onclick="safeExit()">✕</button>
+
+  <!-- index.html -->
+<!-- index.html -->
+<section class="hero-container">
+  <div class="hero-video-wrapper">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="theme colours/Alara Education hero image.mp4" type="video/mp4">
+      <!-- Fallback image -->
+      <source src="theme colours/Alara Education hero image.mp4" alt="Alara Education: Private, Stigma-free ASRHR learning for African teens">
+    </video>
+  </div>
+
+  <div class="hero-content">
+    <button onclick="scrollToLogin()">Get Started</button>
+  </div>
+</section>
+
+<!-- Rest of login form below -->
+<div class="login-form">
+  <input type="tel" id="phone" placeholder="Phone (e.g. 0821234567)" />
+  <input type="text" id="otp" placeholder="OTP (use 123456 for demo)" />
+  <button onclick="handleLogin()">Continue</button>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

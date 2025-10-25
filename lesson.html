@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alara | Consent Lesson</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="safe-exit" onclick="safeExit()">✕</button>
+
+  <div class="lesson-container">
+  <h1 id="lesson-title">What is Consent?</h1>
+  <p id="lesson-intro">Consent means someone agrees freely—without pressure, fear, or silence.</p>
+  
+  <!-- Start Quiz Button -->
+  <button id="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
+
+  <!-- Questions will appear here -->
+  <div id="question-container" style="display: none;">
+    <h2 id="question-text"></h2>
+    <div id="options-container"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div id="nav-buttons" style="display: none;">
+    <button id="back-btn" onclick="goBack()">← Back</button>
+    <button id="next-btn" onclick="goNext()">Next →</button>
+  </div>
+
+  <!-- Final Score -->
+  <div id="result" style="display: none; text-align: center; margin-top: 20px;">
+    <h2 id="score-text"></h2>
+    <button onclick="goToRewards()">Redeem Your Reward</button>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
