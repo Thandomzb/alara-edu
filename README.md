@@ -1,91 +1,82 @@
 # Alara Education
 
-A private, stigma-free web app delivering merit-based ASRHR education to teens in South Africa...
+A privacy-first, mobile-optimised web prototype that gives South African adolescents (13–18) private, stigma-free sexual and reproductive health and rights (ASRHR) education, with rewards for learning. Built for the FNB App of the Year Hackathon 2025.
 
-Alara Education
-Technical Documentation
-FNB Hackathon 2025 Submission
+**Live prototype:** https://alara-edu-9b790.web.app
+**Demo video:** https://youtu.be/BmVxxZexi98
+**Source code:** https://github.com/Thandomzb/alara-edu
 
-🔗 Live Application
-Web App: https://alara-edu-9b790.web.app
-Demo Video: https://youtu.be/BmVxxZexi98
-📁 Source Code
-GitHub Repository: https://github.com/thandomazibuko/alara-edu
+## Project status
 
-🏗️ System Architecture
-Alara is a privacy-first, mobile-optimized web application built for adolescents in high-stigma environments across South Africa and the SADC region.
-Architecture Diagram
-1.User (Mobile Browser)
-      ↓
-2.Firebase Hosting (HTTPS, Global CDN)
-      ↓
-3.Firebase Authentication (Phone OTP)
-      ↓
-4.Cloud Firestore (User progress & rewards)
-Key Design Principles
-Zero backend server → reduced attack surface
-Client-side logic only → fast, lightweight, works on 3G
-No app install required → lowers access barrier
-Safe Exit button → one-tap redirect to neutral site (e.g., google)
+- Working prototype. It has not yet been tested with learners.
+- Reward redemption is simulated. Integration with real reward providers is planned.
+- A 100-learner pilot is planned, with clinician and youth-educator review of all content beforehand.
+- Local language support (isiZulu, isiXhosa) and a grounded AI assistant are planned and not yet built.
 
-⚙️ Tech Stack
+## Architecture
 
+1. User (mobile browser)
+2. Firebase Hosting (HTTPS, global CDN)
+3. Firebase Authentication (phone OTP)
+4. Cloud Firestore (lesson progress and reward redemptions)
 
+Design principles:
+- No custom backend server, which reduces the attack surface
+- Client-side logic only: fast, lightweight, designed for low-bandwidth connections
+- No app install required
+- Safe Exit button: one-tap redirect to a neutral site
 
+## Tech stack
 
-Frontend
-HTML5, CSS3, JavaScript
-Authentication
-Firebase Authentication (Phone OTP)
-Database
-Cloud Firestore
-Hosting
-Firebase Hosting
-Security
-HTTPS, Firestore Rules, No Third-Party Scripts
-Deployment
-Manual upload via Firebase Console
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript |
+| Authentication | Firebase Authentication (phone OTP) |
+| Database | Cloud Firestore |
+| Hosting | Firebase Hosting |
+| Security | HTTPS, Firestore security rules, no third-party scripts |
 
-Why this stack?
-Built for low-literacy, shared-device, data-constrained contexts without compromising safety or impact.
+## Security and privacy design
 
-🔒 Security & Privacy (SSDLC)
-1. Security Requirements
-Goal: Protect teens from stigma, exposure, and data misuse
-Data Minimization: Only store phone (hashed), lesson progress, reward redemptions
-No PII: Quiz answers, gender, location, or school never collected
-2. Threat Modelling (STRIDE)
-Spoofing: Mitigated by official *.web.app domain
-Information Disclosure: Prevented by Safe Exit, no analytics, no logs
-Elevation of Privilege: Firestore rules enforce user isolation
-3. Secure Coding Practices
-No eval(), innerHTML, or dangerous JS patterns
-All assets served locally
-Phone input sanitized
-HTTPS enforced by Firebase Hosting
-4. Security Testing
-Manual privacy testing (no PII in DevTools)
-Safe Exit verified on shared devices
-Auth flow tested with demo credentials (0821234567 / 123456)
-5. Compliance
-Aligned with POPIA (South Africa) and UNICEF ASRHR Guidelines
-No data monetization, no third-party sharing
+**Data minimisation.** We do not ask for a name, email or ID. Phone verification is handled by Firebase Authentication. We store only lesson progress and reward redemptions. We do not collect quiz answers, gender, location or school, and we use no analytics or third-party trackers.
 
-🧪 How to Test (For Judges)
-Visit: https://alara-edu-9b790.web.app
-Use demo login:
-Phone: 0821234567
-OTP: 123456
-Complete the Consent lesson → redeem a reward
+**Threat modelling (STRIDE):**
+- Spoofing: official `*.web.app` domain
+- Information disclosure: Safe Exit button, no analytics
+- Elevation of privilege: Firestore security rules designed to isolate each user's data (production rules and testing are on the roadmap)
 
-📈 Future Roadmap
-Integrate MTN Airtime API and FNB Youth onboarding
-Add local language support (Zulu, Xhosa)
-Implement production Firestore Security Rules
-Conduct POPIA-compliant DPIA before national scale
+**Secure coding:** no `eval()` or `innerHTML`, all assets served locally, phone input sanitised, HTTPS enforced by Firebase Hosting.
 
- Contact
-Developer: Thando Mazibuko
-Email: thandomazibuko@example.com
-GitHub: @thandomazibuko
+**Testing so far (manual):** privacy checks in browser dev tools, Safe Exit verification, authentication flow tested with demo credentials.
+
+**Compliance intent:** designed around POPIA data-minimisation principles and UNICEF ASRHR guidance. A full Data Protection Impact Assessment is planned before any wider rollout.
+
+## How to test
+
+1. Visit https://alara-edu-9b790.web.app
+2. Log in with the demo account (Firebase test number): phone `0821234567`, OTP `123456`
+3. Complete the Consent lesson and redeem a reward (simulated)
+
+## Roadmap
+
+- Clinician and youth-educator review of all content
+- Real reward provider integrations (airtime and data) and real phone verification
+- Production Firestore security rules with automated testing
+- Local language support (isiZulu, isiXhosa)
+- Grounded AI assistant that answers only from reviewed content, does not store conversations, and refers users in crisis to verified services
+- Independent security review and DPIA
+- 100-learner pilot with pre- and post-lesson measurement
+
+## License
+
+Code: [MIT License / Apache-2.0], see the `LICENSE` file.
+Lesson content: [CC BY-SA 4.0].
+
+## Contact
+
+Thando Mazibuko
+Email: thirtyonecommunications@gmail.com
+GitHub: @Thandomzb
+
+> "Alara collects almost no data because for teens in high-stigma environments, privacy isn't a feature, it's the foundation of trust."
 “Alara collects almost no data because for teens in high-stigma environments, privacy isn’t a feature, it’s the foundation of trust.”
