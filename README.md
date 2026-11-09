@@ -69,8 +69,8 @@ Design principles:
 
 ## License
 
-Code: [MIT License / Apache-2.0], see the `LICENSE` file.
-Lesson content: [CC BY-SA 4.0].
+Code: MIT License, see the `LICENSE` file.
+Lesson content: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Contact
 
